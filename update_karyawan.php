@@ -18,18 +18,18 @@
 		
 		if ($error > 0)
 		{
-			$db->update('karyawan',"nama='$nama',ttl='$ttl',skill='$skill',pengalaman='$pengalaman',
+			$db->update('karyawan',"nama='$nama',ttl='$ttl',
 									TempatLahir='$tempatlahir',PendidikanTerakhir='$pendidikan',
-									alamat='$alamat',Jabatan='$jabatan',TglBergabung='$ttb',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count();
+									alamat='$alamat',Jabatan='$jabatan',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count();
 			header('location:tampil_karyawan.php');		
 		}else
 		{
 			if($_FILES['foto']['size'] < 10000000){
 				//move_uploaded_file($_FILES['foto']['tmp_name'], $target_file);
 				move_uploaded_file($_FILES["foto"]["tmp_name"],$target_dir. $_FILES["foto"]["name"]);
-				if($db->update('karyawan',"nama='$nama',foto='$file_name',ttl='$ttl',skill='$skill',pengalaman='$pengalaman',
+				if($db->update('karyawan',"nama='$nama',ttl='$ttl',
 											TempatLahir='$tempatlahir',PendidikanTerakhir='$pendidikan',
-											alamat='$alamat',Jabatan='$jabatan',TglBergabung='$ttb',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count()==1){
+											alamat='$alamat',Jabatan='$jabatan',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count()==1){
 					header('location:tampil_karyawan.php');
 					//echo "A";
 				} else {
@@ -41,9 +41,9 @@
 			
 		}		
 	} else{
-		if($db->update('karyawan',"nama='$nama',ttl='$ttl',skill='$skill',pengalaman='$pengalaman',
+		if($db->update('karyawan',"nama='$nama',ttl='$ttl',
 								TempatLahir='$tempatlahir',PendidikanTerakhir='$pendidikan',
-								alamat='$alamat',Jabatan='$jabatan',TglBergabung='$ttb',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count()==1){
+								alamat='$alamat',Jabatan='$jabatan',jeniskelamin='$jeniskelamin',telepon='$telepon'")->where("id_calon_kr='$id_calon_kr'")->count()==1){
 			header('location:tampil_karyawan.php');
 		} else {
 			header('location:edit_karyawan.php?error_msg=update_gagal&id='.$id_calon_kr);

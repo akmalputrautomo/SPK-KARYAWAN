@@ -35,8 +35,8 @@
                 // Logo
                 $image_file = K_PATH_IMAGES.'tcpdf_logo.jpg';
                 $this->Image($image_file, 17, 4, 25, 25, 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-                $html = '<strong><font size="18">PD. SUBUR BARU JAMBI</font></strong><br/><br/>
-                Jalan Berdikari Rt. 23 No. 13 Kel. Payo Selincah Kec. Paal Merah Kota Jambi
+                $html = '<strong><font size="18">PT.Zakishiss Sinergi Karya Sejahtera</font></strong><br/><br/>
+        Jl. R. Sanim 12A, Tanah Baru, Kec.Beji, Kota Depok 16426.
                 <br/>
                 ';
                 $this->writeHTMLCell(
@@ -94,7 +94,7 @@
                 
             $tgl = date("d F Y");
             // $this->SetY(-55);
-            $html = '<font size="10">Jambi, '.$tgl.' <br/><br/> <br/><br/>
+            $html = '<font size="10">Depok, '.$tgl.' <br/><br/> <br/><br/>
            '.$_SESSION['nama'].'<font>
             <br/>';
             $this->writeHTMLCell(
@@ -164,13 +164,11 @@ $htmlTable =
             <th>Jenis Kelamin</th>
             <th>Alamat</th>
             <th>Telepon</th>
-            <th>foto</th>
             <th>Tempat lahir</th>
             <th>Tanggal lahir</th>
             <th>Pendidikan</th>
             <th>Jabatan</th>
-            <th>Tgl Bergabung</th>
-            <th>Lama Bergabung</th>
+          
         </tr>
     </thead>
     <tbody>';
@@ -182,21 +180,20 @@ $htmlTable =
             <td nowrap>'.$data['jeniskelamin'].'</td>
             <td nowrap>'.$data['alamat'].'</td>
             <td nowrap>'.$data['telepon'].'</td>';
-            $htmlTable .='<td>';
-            if($data["foto"] != ""):
-            $htmlTable .='<img src="assets/foto_calon_karyawan/'.$data["foto"].'" class="img-thumbnail" width="75px" height="70px">';
-            else:
-            $htmlTable .='<img src="assets/foto_calon_karyawan/image_not_available.jpg" class="img-thumbnail" width="75px" height="70px">';
-            endif;
-            $htmlTable .='</td>';
+            // $htmlTable .='<td>';
+            // if($data["foto"] != ""):
+            // $htmlTable .='<img src="assets/foto_calon_karyawan/'.$data["foto"].'" class="img-thumbnail" width="75px" height="70px">';
+            // else:
+            // $htmlTable .='<img src="assets/foto_calon_karyawan/image_not_available.jpg" class="img-thumbnail" width="75px" height="70px">';
+            // endif;
+            // $htmlTable .='</td>';
 
 
             $htmlTable .='<td>'.$data['TempatLahir'].'</td>
             <td>'.$data['ttl'].'</td>
             <td>'.$data['PendidikanTerakhir'].'</td>
             <td>'.$data['Jabatan'].'</td>
-            <td>'.$data['TglBergabung'].'</td>
-            <td>'.hitung_lama_bergabung($data['TglBergabung']).'</td>
+            
         </tr>';
         $no++; endforeach;
         $htmlTable .= '</tbody>

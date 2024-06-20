@@ -16,9 +16,9 @@
             // Logo
             $image_file = K_PATH_IMAGES.'tcpdf_logo.jpg';
             $this->Image($image_file, 17, 4, 25, 25, 'JPG', '', 'T', false, 300, '', false, false, 0, false, false, false);
-            $html = '<strong><font size="18">PD. SUBUR BARU JAMBI</font></strong><br/><br/>
-            Jalan Berdikari Rt. 23 No. 13 Kel. Payo Selincah Kec. Paal Merah Kota Jambi
-            <br/>
+            $html = '<strong><font size="18">PT.Zakishiss Sinergi Karya Sejahtera</font></strong><br/><br/>
+                Jl. R. Sanim 12A, Tanah Baru, Kec.Beji, Kota Depok 16426.
+                <br/>
             ';
             $this->writeHTMLCell(
                 $w=0,
@@ -38,7 +38,7 @@
                 <br>
                 <table>
                 <tr>
-                <td align="center" style="font-size: 15px;">Laporan Data Admin</td>
+                <td align="center" style="font-size: 15px;">Laporan Data Manager</td>
                 </tr>
                 </table>
                 <table>
@@ -73,7 +73,7 @@
            if($this->isLastPage) { 
             $tgl = date("d F Y");
             // $this->SetY(-55);
-            $html = '<font size="10">Jambi, '.$tgl.' <br/><br/> <br/><br/>
+            $html = '<font size="10">Depok, '.$tgl.' <br/><br/> <br/><br/>
             '.$_SESSION['nama'].'<font>
             <br/>';
             $this->writeHTMLCell(

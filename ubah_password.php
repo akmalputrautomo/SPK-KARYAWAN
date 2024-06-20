@@ -5,44 +5,48 @@
         header('location:login.php?error_login=1');
     }
 ?>
-<?php include 'header.php';?>
+<?php 
+    session_start();
+    error_reporting(0);
+    include 'db/db_config.php';
+?>
 <?php include 'menu.php';?>
-<div class="content-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-            <br/>  
-              <div class="panel panel-default">
-                  <div class="panel-heading">
-                    Form Ubah Password
-                  </div>
-                  <div class="panel-body">
-                      <form method="post" action="update_password.php" enctype="multipart/form-data">
-                          <?php if (!empty($_GET['error_msg'])): ?>
-                              <div class="alert alert-danger">
-                                  <?= $_GET['error_msg']; ?>
-                              </div>
-                          <?php endif ?>  
-                          <div class="form-group">
-								<label for="inputEmail">New Password</label>
-								<input required type="password" name="np" class="form-control" id="inputEmail" placeholder="New Password">
-							</div>
-							<div class="form-group">
-								<label  for="inputPassword">Re-type Password</label>
-								<input required type="password" name="rp" class="form-control" id="inputPassword" placeholder="Re-type Password">
-							</div>
-
-                          <div class="form-group">
-                              <button class="btn btn-primary">Simpan</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    
+<div class="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold mb-6">Form Ubah Password</h2>
+        <form method="post" action="update_password.php" enctype="multipart/form-data">
+            <?php if (!empty($_GET['error_msg'])): ?>
+                <div class="bg-red-100 text-red-700 p-4 rounded mb-4">
+                    <?= $_GET['error_msg']; ?>
+                </div>
+            <?php endif ?>
+            <div class="mb-4">
+                <label for="inputEmail" class="block text-gray-700">New Password</label>
+                <input required type="password" name="np" class="form-input mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="inputEmail" placeholder="New Password">
             </div>
-        </div>
-        </div>
+            <div class="mb-4">
+                <label for="inputPassword" class="block text-gray-700">Re-type Password</label>
+                <input required type="password" name="rp" class="form-input mt-1 block w-full border border-gray-300 rounded py-2 px-3" id="inputPassword" placeholder="Re-type Password">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Simpan</button>
+            </div>
+        </form>
     </div>
 </div>
+</body>
+</html>
+
 
 <?php include 'footer.php';?>
 <script type="text/javascript">
